@@ -1,7 +1,7 @@
 public class Funcionario {
     private String nome;
     private String cpf;
-    protected double salario;  // public para os "filhos"
+    private double salario;
 
     public double getBonificacao(){
         return this.salario * 0.1;
