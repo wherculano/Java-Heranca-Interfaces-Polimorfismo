@@ -7,10 +7,12 @@ public class TesteGerente {
         gerente.setSenha(123321);
 
         boolean autenticado = gerente.autentica(123321);
-        if (autenticado){
+        if (autenticado) {
             System.out.println("Usuario autenticado com sucesso!");
-        } else{
+        } else {
             System.out.println("Senha inválida!");
         }
+
+        System.out.println("Bonificacao: R$" + gerente.getBonificacao());
     }
 }
