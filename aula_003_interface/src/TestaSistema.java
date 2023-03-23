@@ -6,9 +6,13 @@ public class TestaSistema {
         Administrador adm = new Administrador();
         adm.setSenha(987456);
 
+        Cliente cliente = new Cliente();
+        cliente.setSenha(987456);
+
         SistemaInterno si = new SistemaInterno();
         si.autentica(gerente);
         si.autentica(adm);
+        si.autentica(cliente);
 
     }
 }
