@@ -1,5 +1,9 @@
-public class Administrador extends Funcionario implements Autenticavel{
-    private int senha;
+public class Administrador extends Funcionario implements Autenticavel {
+    private Autenticador autenticador;
+
+    public Administrador() {
+        this.autenticador = new Autenticador();
+    }
 
     public double getBonificacao() {
         System.out.println("Bonificacao do Administrador");
@@ -8,11 +12,11 @@ public class Administrador extends Funcionario implements Autenticavel{
 
     @Override
     public void setSenha(int senha) {
-        this.senha = senha;
+        this.autenticador.setSenha(senha);
     }
 
     @Override
     public boolean autentica(int senha) {
-        return this.senha == senha;
+        return this.autenticador.autentica(senha);
     }
 }
