@@ -1,5 +1,5 @@
-public class Conta {
-    private double saldo;
+public abstract class Conta {
+    protected double saldo;
     private int agencia;
     private int numero;
     private Cliente titular;
@@ -16,13 +16,7 @@ public class Conta {
         return this.saldo;
     }
 
-    public void deposita(double valor) {
-        if (valor <= 0) {
-            System.out.println("Não é permitido valor menor ou igual a 0");
-            return;
-        }
-        this.saldo += valor;
-    }
+    public abstract void deposita(double valor);
 
     public boolean saca(double valor) {
         if (this.saldo >= valor) {
@@ -73,7 +67,7 @@ public class Conta {
         this.titular = titular;
     }
 
-    public static int getTotal(){
+    public static int getTotal() {
         return Conta.total;
     }
 }
