@@ -16,7 +16,7 @@ public abstract class Conta {
         return this.saldo;
     }
 
-    public abstract void deposita(double valor);
+    public abstract void deposita(double valor) throws ValorNegativoException;
 
     public void saca(double valor) {
         if (this.saldo < valor) {
@@ -27,7 +27,11 @@ public abstract class Conta {
 
     public void transfere(double valor, Conta destino) {
         this.saca(valor);
-        destino.deposita(valor);
+        try{
+            destino.deposita(1000);
+        }catch(ValorNegativoException ex){
+            System.out.println("Não é possível depositar valores iguais ou menores que 0!");
+        }
     }
 
     public int getAgencia() {

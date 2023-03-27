@@ -11,10 +11,9 @@ public class ContaCorrente extends Conta implements Tributavel{
     }
 
     @Override
-    public void deposita(double valor) {
+    public void deposita(double valor) throws ValorNegativoException{
         if (valor <= 0) {
-            System.out.println("Não é permitido valor menor ou igual a 0");
-            return;
+            throw new ValorNegativoException("Não é possível depositar valor menor ou igual a 0");
         }
         this.saldo += valor;
     }

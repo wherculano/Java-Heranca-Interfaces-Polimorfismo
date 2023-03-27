@@ -3,7 +3,11 @@ public class TestaTributaveis {
 
 
         ContaCorrente contaCorrente = new ContaCorrente(123, 321);
-        contaCorrente.deposita(1000);
+        try{
+            contaCorrente.deposita(1000);
+        }catch(ValorNegativoException ex){
+            System.out.println("Não é possível depositar valores iguais ou menores que 0!");
+        }
 
         SeguroDeVida seguroDeVida = new SeguroDeVida();
 
