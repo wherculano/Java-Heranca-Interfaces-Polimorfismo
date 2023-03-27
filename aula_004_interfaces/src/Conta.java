@@ -18,21 +18,16 @@ public abstract class Conta {
 
     public abstract void deposita(double valor);
 
-    public boolean saca(double valor) {
-        if (this.saldo >= valor) {
-            this.saldo -= valor;
-            return true;
+    public void saca(double valor) {
+        if (this.saldo < valor) {
+            throw new SaldoInsuficienteException("Saldo insuficiente! Saldo: R$"  + this.saldo + ". Valor de Saque: R$" + valor);
         }
-        return false;
+        this.saldo -= valor;
     }
 
-    public boolean transfere(double valor, Conta destino) {
-        boolean saqueOk = this.saca(valor);
-        if (saqueOk) {
-            destino.deposita(valor);
-            return true;
-        }
-        return false;
+    public void transfere(double valor, Conta destino) {
+        this.saca(valor);
+        destino.deposita(valor);
     }
 
     public int getAgencia() {
